@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Show App</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.book {
+    background: #e9f2ff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Book Show App</h1>
+
+<div class="container">
+    <input type="text" id="title" placeholder="Book Title">
+    <input type="text" id="author" placeholder="Author Name">
+    <button onclick="addBook()">Add Book</button>
+
+    <div id="bookList"></div>
+</div>
+
+<script>
+function addBook() {
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+
+    if (title === "" || author === "") {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    let bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.innerHTML = "<strong>" + title + "</strong><br>Author: " + author;
+
+    document.getElementById("bookList").appendChild(bookDiv);
+
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+}
+</script>
+
+</body>
+</html>
